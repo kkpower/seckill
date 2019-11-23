@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div th:each="good:${goodsList}">
+        <a th:href="@{|/showgoods/${good.id}|}">
+        <img th:src="@{|/${good.imageurl}|}"><br/>
+        <span th:text="${good.name}"></span><br/>
+        <span th:text="${good.namedesc}"></span>
+        <span th:text="${#numbers.formatCurrency(good.price)}"></span>
+        </a>
+    </div>
+</body>
+</html>

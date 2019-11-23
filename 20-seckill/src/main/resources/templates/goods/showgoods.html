@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script th:src="@{|/js/jquery.min.js|}"></script>
+    <script th:src="@{|/js/jquery.countdown.min.js|}"></script>
+    <script th:src="@{|/js/secKill.js|}"></script>
+
+</head>
+<body>
+
+    <div style="float: left">
+        <img th:src="@{|/${goods.imageurl}|}">
+    </div>
+    <div style="float: left;margin-top: 100px;">
+        <span th:text="${goods.name}"></span><br/>
+        <span th:text="${goods.namedesc}"></span><br/>
+        <span th:text="${#numbers.formatCurrency(goods.price)}"></span><br/>
+        <span id="secKillSpan">
+           <!-- <input type="button" value="立即抢购">-->
+        </span>
+    </div>
+</body>
+<script>
+    $(function () {
+        secKillObj.fun.initSeckill("[[${goods.id}]]","[[${goods.starttime.getTime()}]]","[[${goods.endtime.getTime()}]]");
+    })
+</script>
+</html>
